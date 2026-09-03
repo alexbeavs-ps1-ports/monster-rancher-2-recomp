@@ -1,0 +1,52 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "Monster Rancher 2"
+id = "SLUS-00917"
+region = "USA"
+players = 2
+exe = "disc/SLUS_009.17"
+load_address = "0x80010000"
+entry_pc = "0x80066608"
+text_size = "0x000B7800"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "Monster Rancher 2 (USA).bin"
+cue_name = "Monster Rancher 2 (USA).cue"
+boot_exe = "SLUS_009.17"
+known_sizes = [451280592]
+known_md5 = [
+  "b41f1f33d1075f22cab7e180f812c0ac",
+]
+known_sha1 = [
+  "e7418d1491e1809490b2e5fe20d738cb730e5e22",
+]
+
+[recompiler]
+seeds = "seeds/ghidra_funcs.txt"
+out_dir = "generated"
+strict = true
+
+[runtime]
+window_title = "Monster Rancher 2 Recompiled"
+memcard_dir = "saves"
+bios_hle = false
+openbios = false
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 1
+required_disc_fp = "8f83b7ce3eca97e63dacc2968d5883828a3d5a2ed60ad5dcc7863d79895d06e1"
