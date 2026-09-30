@@ -7,6 +7,9 @@ id = "SLUS-00917"
 region = "USA"
 players = 2
 exe = "disc/SLUS_009.17"
+disc = "disc/Monster Rancher 2 (USA).cue"
+discs = ["disc/Monster Rancher 2 (USA).cue"]
+disc_serials = ["SLUS-00917"]
 load_address = "0x80010000"
 entry_pc = "0x80066608"
 text_size = "0x000B7800"
@@ -25,8 +28,10 @@ known_md5 = [
 known_sha1 = [
   "e7418d1491e1809490b2e5fe20d738cb730e5e22",
 ]
+known_crc32 = ["30af8007"]
 
 [recompiler]
+bios_config = "psxrecomp/bios/SCPH1001.toml"
 seeds = "seeds/ghidra_funcs.txt"
 out_dir = "generated"
 strict = true
